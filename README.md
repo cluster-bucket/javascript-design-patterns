@@ -335,7 +335,7 @@ class Abstraction {
     this.imp = imp;
   }
   operation() {
-    return this.imp.operationImp();
+    this.imp.operationImp();
   }
 }
 
@@ -347,27 +347,27 @@ class Implementor {
 
 class ConcreteImplementorA extends Implementor {
   operationImp() {
-    return console.log('ConcreteImplementorA::operationImp');
+    console.log('ConcreteImplementorA::operationImp');
   }
 }
 
 class ConcreteImplementorB extends Implementor {
   operationImp() {
-    return console.log('ConcreteImplementorB::operationImp');
+    console.log('ConcreteImplementorB::operationImp');
   }
 }
 
 class Client {
   static run() {
-    let concreteImplementorA = new ConcreteImplementorA();
-    let refinedAbstractionA = new RefinedAbstraction(concreteImplementorA);
+    const concreteImplementorA = new ConcreteImplementorA();
+    const refinedAbstractionA = new RefinedAbstraction(concreteImplementorA);
     refinedAbstractionA.operation();
 
-    let concreteImplementorB = new ConcreteImplementorB();
-    let refinedAbstractionB = new RefinedAbstraction(concreteImplementorB);
-    return refinedAbstractionB.operation();
+    const concreteImplementorB = new ConcreteImplementorB();
+    const refinedAbstractionB = new RefinedAbstraction(concreteImplementorB);
+    refinedAbstractionB.operation();
   }
-};
+}
 
 Client.run();
 ```
