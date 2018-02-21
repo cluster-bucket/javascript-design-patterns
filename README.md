@@ -389,10 +389,10 @@ class Leaf extends Component {}
 
 class Composite extends Component {
   add(component) {
-    return this.list.push(component);
+    this.list.push(component);
   }
   operation() {
-    return console.log(this.list);
+    console.log(this.list);
   }
   getComposite() {
     return this;
@@ -402,17 +402,17 @@ class Composite extends Component {
 class Client {
   static run() {
     // Create a Composite object and add a Leaf
-    let composite = new Composite();
-    let leaf = new Leaf();
+    const composite = new Composite();
+    const leaf = new Leaf();
     composite.add(leaf);
     composite.operation();
     
     // Add a Composite to the Composite
-    let composite2 = new Composite();
+    const composite2 = new Composite();
     composite.add(composite2);
-    return composite.operation();
+    composite.operation();
   }
-};
+}
 
 Client.run();
 ```
