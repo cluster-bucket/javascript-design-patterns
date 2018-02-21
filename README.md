@@ -12,13 +12,13 @@ Ports of Gang of Four design patterns in modern JavaScript, which have been port
   * [Prototype](#prototype)
   * [Singleton](#singleton)
 * [Structural Patterns](#structural-patterns)
-  * [Adapter](#adapter)\*\*
-  * [Bridge](#bridge)\*\*
-  * [Composite](#composite)\*\*
-  * [Decorator](#decorator)\*\*
-  * [Facade](#facade)\*\*
+  * [Adapter](#adapter)
+  * [Bridge](#bridge)
+  * [Composite](#composite)
+  * [Decorator](#decorator)
+  * [Facade](#facade)
   * [Flyweight](#flyweight)
-  * [Proxy](#proxy)\*\*
+  * [Proxy](#proxy)
 * [Behavioral Patterns](#behavioral-patterns)
   * [Chain of Responsibility](#chain-of-responsibility)\*\*
   * [Command](#command)\*\*
@@ -572,19 +572,19 @@ class RealSubject extends Subject {
 
 class Proxy extends Subject {
   request() {
-    if (this.realSubject == null) {
+    if (!this.realSubject) {
       this.realSubject = new RealSubject();
     }
-    return this.realSubject.request();
+    this.realSubject.request();
   }
 }
 
 class Client {
   static run() {
-    let proxy = new Proxy();
-    return proxy.request();
+    const proxy = new Proxy();
+    proxy.request();
   }
-};
+}
 
 Client.run();
 ```
