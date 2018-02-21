@@ -166,15 +166,14 @@ Factory Method
 --------------------------------------------------------------------------------
 
 ```js
-class Product {};
+class Product {}
 class ConcreteProduct1 extends Product {}
 class ConcreteProduct2 extends Product {}
 
 class Creator {
   factoryMethod() {}
   operation() {
-    let product;
-    return product = this.factoryMethod();
+    const product = this.factoryMethod();
   }
 }
 
@@ -189,12 +188,12 @@ class ConcreteCreator extends Creator {
 
 class Example {
   static run() {
-    let creator = new ConcreteCreator();
+    const creator = new ConcreteCreator();
     console.log(creator.factoryMethod(1));
     console.log(creator.factoryMethod(2));
-    return console.log(creator.factoryMethod(3));
+    console.log(creator.factoryMethod(3));
   }
-};
+}
 
 Example.run();
 ```
