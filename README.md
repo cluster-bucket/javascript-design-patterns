@@ -205,26 +205,22 @@ Prototype
 class Client {
   constructor() {}
   operation(prototype) {
-    let p;
-    return p = prototype.clone();
+    return prototype.clone();
   }
-};
+}
 
 class Prototype {
   clone() {
-    if (Object.create) {
-      return Object.create(this);
-    } else { // if < IE9
-      let Clone = function() {};
-      Clone.prototype = this;
-      return new Clone();
-    }
+    return Object.create(this);
   }
 
   setProperty(property) {
     this.property = property;
   }
-  logProperty() { return console.log(this.property || '-'); }
+  
+  logProperty() {
+    console.log(this.property || '-');
+  }
 }
 
 class ConcretePrototype1 extends Prototype {}
@@ -233,16 +229,16 @@ class ConcretePrototype2 extends Prototype {}
 
 class Example {
   static run() {
-    let client = new Client();
-    let cp1 = new ConcretePrototype1();
-    let cp1Prototype = client.operation(cp1);
+    const client = new Client();
+    const cp1 = new ConcretePrototype1();
+    const cp1Prototype = client.operation(cp1);
 
     cp1.setProperty('original1');
     cp1Prototype.setProperty('clone1');
     cp1.logProperty();
-    return cp1Prototype.logProperty();
+    cp1Prototype.logProperty();
   }
-};
+}
 
 Example.run();
 ```
