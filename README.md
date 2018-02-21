@@ -603,14 +603,14 @@ class Handler {
   }
   handleRequest() {
     if (this.successor) {
-      return this.successor.handleRequest();
+      this.successor.handleRequest();
     }
   }
 }
 
 class ConcreteHandler1 extends Handler {
   handleRequest() {
-    return console.log(`${this.kind} handled`);
+    console.log(`${this.kind} handled`);
   }
 }
 
@@ -618,11 +618,11 @@ class ConcreteHandler2 extends Handler {}
 
 class Client {
   static run() {
-    let concreteHandler1 = new ConcreteHandler1('foo');
-    let concreteHandler2 = new ConcreteHandler2('bar', concreteHandler1);
-    return concreteHandler2.handleRequest();
+    const concreteHandler1 = new ConcreteHandler1('foo');
+    const concreteHandler2 = new ConcreteHandler2('bar', concreteHandler1);
+    concreteHandler2.handleRequest();
   }
-};
+}
 
 Client.run();
 ```
