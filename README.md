@@ -43,6 +43,7 @@ Abstract Factory
 --------------------------------------------------------------------------------
 
 ```js
+
 class AbstractProductA {
   constructor(arg) {
     console.log(arg);
@@ -93,9 +94,9 @@ class Client {
 class Example {
   static run() {
     let client2;
-    let factory1 = new ConcreteFactory1();
-    let client1 = new Client(factory1);
-    let factory2 = new ConcreteFactory2();
+    const factory1 = new ConcreteFactory1();
+    const client1 = new Client(factory1);
+    const factory2 = new ConcreteFactory2();
     return client2 = new Client(factory2);
   }
 }
