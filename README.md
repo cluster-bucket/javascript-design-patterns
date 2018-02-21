@@ -301,26 +301,27 @@ class Target {
 
 class Adaptee {
   specificRequest() {
-    return console.log('Specific request');
+    console.log('Specific request');
   }
 }
 
 class Adapter extends Target {
   constructor(adaptee) {
+    super()
     this.adaptee = adaptee;
   }
   request() {
-    return this.adaptee.specificRequest();
+    this.adaptee.specificRequest();
   }
 }
 
 class Client {
   static run() {
-    let adaptee = new Adaptee();
-    let adapter = new Adapter(adaptee);
-    return adapter.request();
+    const adaptee = new Adaptee();
+    const adapter = new Adapter(adaptee);
+    adapter.request();
   }
-};
+}
 
 Client.run();
 ```
