@@ -422,18 +422,15 @@ Decorator
 
 ```js
 class Component {
-  static initClass() {
-    this.prototype.props = {};
-  }
   add(key, val) {
-    return this.props[key] = val;
+    this.props[key] = val;
   }
   get() {
     return this.props;
   }
   process() {}
-};
-Component.initClass();
+}
+Component.prototype.props = {};
 
 class ConcreteComponent extends Component {
   process() {}
@@ -441,33 +438,35 @@ class ConcreteComponent extends Component {
 
 class Decorator extends Component {
   constructor(component) {
+    super();
     this.component = component;
   }
   process() {
-    return this.component.process();
+    this.component.process();
   }
 }
 
 class ConcreteDecoratorA extends Decorator {
   process() {
     this.component.add('concreteDecoratorAProcess', true);
-    return super.process();
+    super.process();
   }
 }
 
 class ConcreteDecoratorB extends Decorator {
   process() {
     this.component.add('concreteDecoratorBProcess', true);
-    return super.process();
+    super.process();
   }
 }
 
 class Example {
   static run() {
-    let cmpt = new ConcreteDecoratorA(new ConcreteDecoratorB(new ConcreteComponent()));
-    return cmpt.process();
+    const cmpt = new ConcreteDecoratorA(new ConcreteDecoratorB(new ConcreteComponent()));
+    cmpt.process();
+    console.log(cmpt.get());
   }
-};
+}
 
 Example.run();
 ```
