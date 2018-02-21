@@ -255,29 +255,27 @@ class Singleton {
 
 Singleton._instance = null;
 
+// Example implementation
+class ExampleClass extends Singleton {
+  
+  constructor(arg1, arg2) {
+    super();
+    conhttps://github.com/dustinboston/javascript-design-patterns/blob/master/README.md#singletonsole.log(arg1, arg2);
+  }
+  
+  set(key, val) {
+    this.properties[key] = val;
+  }
+
+  get(key) {
+    return this.properties[key];
+  }
+}
+
+ExampleClass.prototype.properties = {};
 
 class Example {
   static run() {
-    
-      class ExampleClass extends Singleton {
-        
-        constructor(arg1, arg2) {
-          super();
-          console.log(arg1, arg2);
-        }
-        
-        set(key, val) {
-          this.properties[key] = val;
-        }
-
-        get(key) {
-          return this.properties[key];
-        }
-      }
-
-      ExampleClass.prototype.properties = {};
-
-
     example = ExampleClass.getInstance('arg1', 'arg2');
     example.set('Singleton', 'This is a singleton value');
     console.log(example.get('Singleton'));
