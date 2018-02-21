@@ -97,7 +97,7 @@ class Example {
     const factory1 = new ConcreteFactory1();
     const client1 = new Client(factory1);
     const factory2 = new ConcreteFactory2();
-    return client2 = new Client(factory2);
+    client2 = new Client(factory2);
   }
 }
 
@@ -107,13 +107,13 @@ Example.run();
 Builder
 --------------------------------------------------------------------------------
 
-```js
 class Director {
   constructor(builder) {
     this.builder = builder;
   }
   construct(structure) {
-    for (let obj of Array.from(structure)) {
+    for (let i = 0; i < structure.length; i++) {
+      const obj = structure[i];
       console.log(obj);
       this.builder.buildPart(obj);
     }
@@ -125,7 +125,7 @@ class Product {
     this.result = '';
   }
   append(obj) {
-    return this.result += obj;
+    this.result += obj;
   }
   get() {
     return this.result;
@@ -138,10 +138,11 @@ class Builder {
 
 class ConcreteBuilder extends Builder {
   constructor() {
+    super();
     this.product = new Product();
   }
   buildPart(obj) {
-    return this.product.append(obj.toUpperCase());
+    this.product.append(obj.toUpperCase());
   }
   getResult() {
     return this.product;
@@ -150,13 +151,13 @@ class ConcreteBuilder extends Builder {
 
 class Client {
   static run() {
-    let concreteBuilder = new ConcreteBuilder();
-    let director = new Director(concreteBuilder);
+    const concreteBuilder = new ConcreteBuilder();
+    const director = new Director(concreteBuilder);
     director.construct('ohai');
-    let result = concreteBuilder.getResult();
-    return alert(result.get());
+    const result = concreteBuilder.getResult();
+    alert(result.get());
   }
-};
+}
 
 Client.run();
 ```
