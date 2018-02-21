@@ -489,18 +489,17 @@ class Subsystem2 {
 
 class Facade {
   request() {
-    let s2;
-    let s1 = new Subsystem1();
-    return s2 = new Subsystem2();
+    const s1 = new Subsystem1();
+    const s2 = new Subsystem2();
   }
 }
 
 class Client {
   static run() {
-    let facade = new Facade();
-    return facade.request();
+    const facade = new Facade();
+    facade.request();
   }
-};
+}
 
 Client.run();
 ```
