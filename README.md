@@ -1,7 +1,7 @@
 JavaScript Design Patterns
 ================================================================================
 
-Ports of Gang of Four design patterns in modern JavaScript. 
+Ports of Gang of Four design patterns in modern JavaScript, which have been ported from [CoffeeScript Design Patterns](https://github.com/dustinboston/coffeescript-design-patterns) with [Decaffeinate](https://decaffeinate-project.org/repl/), [CoffeeScript](http://coffeescript.org/), and [repl.it](https://repl.it/).
 
 :warning: *Important:* Still in development, YMMV
 
@@ -12,29 +12,30 @@ Ports of Gang of Four design patterns in modern JavaScript.
   * [Prototype](#prototype)
   * [Singleton](#singleton)
 * [Structural Patterns](#structural-patterns)
-  * [Adapter](#adapter)
-  * [Bridge](#bridge)
-  * [Composite](#composite)
-  * [Decorator](#decorator)
-  * [Facade](#facade)
+  * [Adapter](#adapter)\*\*
+  * [Bridge](#bridge)\*\*
+  * [Composite](#composite)\*\*
+  * [Decorator](#decorator)\*\*
+  * [Facade](#facade)\*\*
   * [Flyweight](#flyweight)
-  * [Proxy](#proxy)
+  * [Proxy](#proxy)\*\*
 * [Behavioral Patterns](#behavioral-patterns)
-  * [Chain of Responsibility](#chain-of-responsibility)
-  * [Command](#command)
-  * [Interpreter](#interpreter)
-  * [Iterator](#iterator)
-  * [Mediator](#mediator)
-  * [Memento](#memento)\*
-  * [Observer](#observer)
-  * [State](#state)\*
-  * [Strategy](#strategy)
-  * [Template Method](#template-method)
-  * [Visitor](#visitor)\*
+  * [Chain of Responsibility](#chain-of-responsibility)\*\*
+  * [Command](#command)\*\*
+  * [Interpreter](#interpreter)\*\*
+  * [Iterator](#iterator)\*\*
+  * [Mediator](#mediator)\*\*
+  * [Memento](#memento)\* \*\*
+  * [Observer](#observer)\*\*
+  * [State](#state)\* \*\*
+  * [Strategy](#strategy)\*\*
+  * [Template Method](#template-method)\*\*
+  * [Visitor](#visitor)\* \*\*
 * [Foundational Classes](#foundational-classes)
-  * [List Class](#list-class)
+  * [List Class](#list-class)\*\*
 
-\* Unfinished pattern
+\* Unfinished pattern<br />
+\*\* Unfinished port
 
 Creational Patterns
 ================================================================================
