@@ -20,8 +20,8 @@ Ports of Gang of Four design patterns in modern JavaScript, which have been port
   * [Flyweight](#flyweight)
   * [Proxy](#proxy)
 * [Behavioral Patterns](#behavioral-patterns)
-  * [Chain of Responsibility](#chain-of-responsibility)\*\*
-  * [Command](#command)\*\*
+  * [Chain of Responsibility](#chain-of-responsibility)
+  * [Command](#command)
   * [Interpreter](#interpreter)\*\*
   * [Iterator](#iterator)\*\*
   * [Mediator](#mediator)\*\*
@@ -637,7 +637,7 @@ class Command {
 
 class Invoker {
   execute(command) {
-    return command.execute();
+    command.execute();
   }
 }
 
@@ -648,6 +648,7 @@ class Receiver {
 
 class ConcreteCommandA extends Command {
   constructor(receiver) {
+    super();
     this.receiver = receiver;
   }
   execute() {
@@ -657,6 +658,7 @@ class ConcreteCommandA extends Command {
 
 class ConcreteCommandB extends Command {
   constructor(receiver) {
+    super();
     this.receiver = receiver;
   }
   execute() {
@@ -666,21 +668,21 @@ class ConcreteCommandB extends Command {
 
 class Client {
   static run(action) {
-    let receiver = new Receiver();
-    let ccmdA = new ConcreteCommandA(receiver);
-    let ccmdB = new ConcreteCommandB(receiver);
-    let invoker = new Invoker();
+    const receiver = new Receiver();
+    const ccmdA = new ConcreteCommandA(receiver);
+    const ccmdB = new ConcreteCommandB(receiver);
+    const invoker = new Invoker();
     if (action === 1) { invoker.execute(ccmdA); }
     if (action === 2) { return invoker.execute(ccmdB); }
   }
-};
+}
 
 class Example {
   static run() {
     Client.run(1);
-    return Client.run(2);
+    Client.run(2);
   }
-};
+}
 
 Example.run();
 ```
