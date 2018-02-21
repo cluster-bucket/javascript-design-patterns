@@ -248,36 +248,41 @@ Singleton
 
 ```js
 class Singleton {
-  static initClass() {
-    this._instance = null;
-  }
   static getInstance() {
-    return this._instance || (this._instance = new (this)(...arguments));
+    return this._instance || (this._instance = new this(...arguments));
   }
 }
-Singleton.initClass();
+
+Singleton._instance = null;
+
 
 class Example {
   static run() {
-    class ExampleClass extends Singleton {
-      static initClass() {
-        this.prototype.properties = {};
-      }
-      constructor() {}
-      set(key, val) {
-        this.properties[key] = val;
-      }
-      get(key) {
-        return this.properties[key];
-      }
-    }
-    ExampleClass.initClass();
+    
+      class ExampleClass extends Singleton {
+        
+        constructor(arg1, arg2) {
+          super();
+          console.log(arg1, arg2);
+        }
+        
+        set(key, val) {
+          this.properties[key] = val;
+        }
 
-    let example = ExampleClass.getInstance();
+        get(key) {
+          return this.properties[key];
+        }
+      }
+
+      ExampleClass.prototype.properties = {};
+
+
+    example = ExampleClass.getInstance('arg1', 'arg2');
     example.set('Singleton', 'This is a singleton value');
-    return console.log(example.get('Singleton'));
+    console.log(example.get('Singleton'));
   }
-};
+}
 
 Example.run();
 ```
