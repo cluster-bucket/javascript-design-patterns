@@ -43,7 +43,6 @@ Abstract Factory
 --------------------------------------------------------------------------------
 
 ```js
-
 class AbstractProductA {
   constructor(arg) {
     console.log(arg);
@@ -107,6 +106,7 @@ Example.run();
 Builder
 --------------------------------------------------------------------------------
 
+```js
 class Director {
   constructor(builder) {
     this.builder = builder;
