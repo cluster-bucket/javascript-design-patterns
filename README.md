@@ -514,7 +514,7 @@ class FlyweightFactory {
   }
 
   getFlyweight(key) {
-    if (this.flyweights[key] == null) {
+    if (!this.flyweights[key]) {
       this.flyweights[key] = new ConcreteFlyweight(key);
     }
     return this.flyweights[key];
@@ -529,37 +529,30 @@ class Flyweight {
 }
 
 class ConcreteFlyweight extends Flyweight {
-  static initClass() {
-    this.prototype.intrinsicState = '';
-  }
   operation(extrinsicState) {
     this.intrinsicState += `${extrinsicState} `;
-    return console.log(this.intrinsicState);
+    console.log(this.intrinsicState);
   }
 }
-ConcreteFlyweight.initClass();
+ConcreteFlyweight.prototype.intrinsicState = '';
 
-class UnsharedConcreteFlyweight extends Flyweight {
-  static initClass() {
-    this.prototype.allState = null;
-  }
-}
-UnsharedConcreteFlyweight.initClass();
+class UnsharedConcreteFlyweight extends Flyweight {}
+UnsharedConcreteFlyweight.prototype.allState = null;
 
 class Client {
   static run() {
-    let factory = new FlyweightFactory();
-    let foo = factory.getFlyweight('foo');
-    let bar = factory.getFlyweight('bar');
-    let baz = factory.getFlyweight('baz');
-    let qux = factory.getFlyweight('foo');
+    const factory = new FlyweightFactory();
+    const foo = factory.getFlyweight('foo');
+    const bar = factory.getFlyweight('bar');
+    const baz = factory.getFlyweight('baz');
+    const qux = factory.getFlyweight('foo');
     foo.operation('red');
     bar.operation('green');
     baz.operation('blue');
-    return qux.operation('black');
+    qux.operation('black');
   }
-};
-
+}
+ 
 Client.run();
 ```
 
