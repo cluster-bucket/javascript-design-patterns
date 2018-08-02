@@ -261,7 +261,7 @@ class ExampleClass extends Singleton {
   
   constructor(arg1, arg2) {
     super();
-    conhttps://github.com/dustinboston/javascript-design-patterns/blob/master/README.md#singletonsole.log(arg1, arg2);
+    console.log(arg1, arg2);
   }
   
   set(key, val) {
